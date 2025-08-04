@@ -27,7 +27,7 @@ const handleNext = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/products");
+        const response = await fetch("https://swans-store-be.onrender.com/api/products");
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         setVisibleProducts(data);
