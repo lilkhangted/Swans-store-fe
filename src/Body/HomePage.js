@@ -24,6 +24,10 @@ const handleNext = () => {
   );
 };
 
+useEffect(() => {
+  fetch('https://swans-store-be.onrender.com/api/ping')
+}, []);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
