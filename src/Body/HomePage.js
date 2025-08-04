@@ -25,7 +25,7 @@ const handleNext = () => {
 };
 
 useEffect(() => {
-  fetch('https://swans-store-be.onrender.com/api/ping')
+  fetch("https://swans-store-be.onrender.com/api/ping")
 }, []);
 
   useEffect(() => {
