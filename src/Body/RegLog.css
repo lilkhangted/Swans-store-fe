@@ -1,0 +1,116 @@
+.register-page {
+  min-height: 100vh;
+  background: #f0eee4;
+}
+
+
+.register-form {
+  background: #fff;
+  padding: 40px 0 32px 0;
+  border-radius: 0;
+  box-shadow: none;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 7% auto;
+}
+
+.register-form select{
+    width: 84%;
+}
+
+.register-title {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #222;
+  font-weight: 400;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.register-input {
+  width: 80%;
+  padding: 12px 10px;
+  margin-bottom: 18px;
+  border: 1px solid #bbb;
+  border-radius: 0;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+  font-family: inherit;
+}
+
+.register-input:focus {
+  border: 1.5px solid #222;
+  outline: none;
+}
+
+.register-row {
+  display: flex;
+  gap: 16px;
+  width: 84%;
+}
+
+.register-row .register-input {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.register-note {
+  width: 80%;
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.register-policy {
+  width: 80%;
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.register-policy a {
+  color: #222;
+  text-decoration: underline;
+}
+
+.register-checkbox {
+  width: 80%;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.98rem;
+}
+
+.register-btn {
+  width: 80%;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 14px 0;
+  border-radius: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.register-btn:hover {
+  background: #222;
+}
+
+.register-footer {
+  width: 80%;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.register-footer a {
+  color: #222;
+  text-decoration: underline;
+  font-size: 1rem;
+}
