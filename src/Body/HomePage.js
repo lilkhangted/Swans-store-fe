@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useRef} from "react";
 import "../App.css";
+import useScrollFadeIn from "../Context/scrollFade";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Loading from "../Loading";
+import Review from "./Review";
 
 function HomePage() {
   const [visibleProducts, setVisibleProducts] = useState([]);
@@ -9,6 +12,9 @@ function HomePage() {
   const [error, setError] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 4;
+
+  const reviewRef = useRef(null);
+  const showReview = useScrollFadeIn(reviewRef);
 
   const baseURL = window.location.hostname === "localhost" ? "http://localhost:5000" : "https://swans-store-be.onrender.com";
 
@@ -45,7 +51,7 @@ function HomePage() {
 
       fetchProducts();
     }, [baseURL]);
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
     if (error) return <p>Error: {error}</p>;
 
       return (
@@ -98,6 +104,9 @@ function HomePage() {
                 ))}
                   <button className="slider-btn right" onClick={handleNext} disabled={currentIndex + itemsPerPage >= visibleProducts.length}>&gt;</button>
                 </div>
+            </section>
+            <section ref={reviewRef} className={`section ${showReview ? "visible" : ""}`}>
+              <Review />
             </section>
           </div>
         );

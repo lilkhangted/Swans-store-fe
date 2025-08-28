@@ -119,7 +119,7 @@ function Register() {
           value={form.street}
           onChange={handleChange}
         />
-        <div className="register-row">
+        
           <input
             className="register-input"
             type="text"
@@ -136,7 +136,7 @@ function Register() {
             value={form.city}
             onChange={handleChange}
           />
-        </div>
+        
         <select
           className="register-input"
           name="country"

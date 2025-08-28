@@ -5,27 +5,15 @@ import ProductDetail from './Body/ProductDetail';
 import Register from './Body/Register';
 import Login from './Body/Login';
 import AdminDashboard from './Admin/adminMain';
-
-// Component bảo vệ route
-const ProtectedRoute = ({ children, requiredRole }) => {
-  const { user } = useAuth();
-
-  if (!user) {
-    // Nếu chưa đăng nhập, chuyển hướng về /login
-    return <Navigate to="/login" replace />;
-  }
-
-  if (requiredRole && user.role !== requiredRole) {
-    // Nếu role không khớp, chuyển hướng về /home
-    return <Navigate to="/home" replace />;
-  }
-
-  return children;
-};
+import {useEffect, useState} from 'react';
+import { useLocation } from 'react-router-dom';
+import Loading from './Loading';
+import ProtectedRoute from './Context/ProtectedRoute';
+import CartPage from './Body/CartPage';
 
 function App() {
+
   return (
-    <Router>
       <AuthProvider>
         <Routes>
           <Route path="/home" element={<MainBody />} />
@@ -40,10 +28,17 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/" element={<MainBody />} />
+          <Route 
+          path="/cart" 
+          element={
+            <ProtectedRoute>
+              <CartPage />
+            </ProtectedRoute>
+          } 
+        />
+          <Route path="/" element={<Login />} />
         </Routes>
       </AuthProvider>
-    </Router>
   );
 }
 
