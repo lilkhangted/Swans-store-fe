@@ -88,7 +88,6 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  border: 1px solid black;
   width: 85%;
   margin: 0 auto;
   margin-bottom: 2rem;
@@ -142,7 +141,6 @@
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease;
-  border: 1px solid black;
 }
 
 .featured-product.visible {
