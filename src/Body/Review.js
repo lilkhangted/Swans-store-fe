@@ -2,19 +2,14 @@ import React from "react";
 import "../App.css";
 import useScrollFadeIn from "../Context/scrollFade";
 import { useRef } from "react";
-import { useState, useEffect } from "react";
-import { useAuth } from "../Context/authContext";
-import Loading from "../Loading";
+
 
 function Review()
 {
     const ref = useRef();
     const isVisible = useScrollFadeIn(ref);
     return(
-        <div
-      ref={ref}
-      className={`review-container fade-section ${isVisible ? "visible" : ""}`}
-    >
+        <div ref={ref} className={`review-container fade-section ${isVisible ? "visible" : ""}`}>
             <h2>Customer Reviews</h2>
             <div className="review1">
                  <img src="/user1.jpg" alt="user" />

@@ -1,10 +1,10 @@
 import React, {useRef} from "react";
 import "../App.css";
 import useScrollFadeIn from "../Context/scrollFade";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Loading from "../Loading";
 import Review from "./Review";
+import FeatureProduct from "./FeatureProduct";
 
 function HomePage() {
   const [visibleProducts, setVisibleProducts] = useState([]);
@@ -90,21 +90,23 @@ function HomePage() {
 
             
             <h2 className='title'>Sản Phẩm Nổi Bật</h2>
-            <section className="featured-products">
-                <div className="products">
-                  <button className="slider-btn left" onClick={handlePrev} disabled={currentIndex === 0}>&lt;</button>
-                  {visibleProducts.slice(currentIndex, currentIndex + itemsPerPage).map((product) => (
-                    <div className="product" key={product.id}>
-                      <Link to={`/product/${product.id}`}>
-                        <img src={product.images} alt={product.name} />
-                        <h3>{product.name}</h3>
-                        <p>Giá: {product.price.toLocaleString()}₫</p>
-                      </Link>
-                    </div>
+            <div className="feature-products-container">
+              <button onClick={handlePrev} disabled={currentIndex === 0} className="nav-button">
+                &#8592;
+              </button>
+              <div className="feature-products">
+                {visibleProducts.slice(currentIndex, currentIndex + itemsPerPage).map((products) => (
+                  <FeatureProduct key={products.id} product={products} />
                 ))}
-                  <button className="slider-btn right" onClick={handleNext} disabled={currentIndex + itemsPerPage >= visibleProducts.length}>&gt;</button>
-                </div>
-            </section>
+              </div>
+              <button
+                onClick={handleNext}
+                disabled={currentIndex + itemsPerPage >= visibleProducts.length}
+                className="nav-button"
+              >
+                &#8594;
+              </button>
+            </div>
             <section ref={reviewRef} className={`section ${showReview ? "visible" : ""}`}>
               <Review />
             </section>

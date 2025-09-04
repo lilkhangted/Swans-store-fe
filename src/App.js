@@ -5,9 +5,7 @@ import ProductDetail from './Body/ProductDetail';
 import Register from './Body/Register';
 import Login from './Body/Login';
 import AdminDashboard from './Admin/adminMain';
-import {useEffect, useState} from 'react';
-import { useLocation } from 'react-router-dom';
-import Loading from './Loading';
+
 import ProtectedRoute from './Context/ProtectedRoute';
 import CartPage from './Body/CartPage';
 
