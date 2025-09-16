@@ -107,7 +107,7 @@ function HomePage() {
                 &#8594;
               </button>
             </div>
-            <section ref={reviewRef} className={`section ${showReview ? "visible" : ""}`}>
+            <section ref={reviewRef} className={"review-section"} {...showReview}>
               <Review />
             </section>
           </div>

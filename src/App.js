@@ -5,7 +5,7 @@ import ProductDetail from './Body/ProductDetail';
 import Register from './Body/Register';
 import Login from './Body/Login';
 import AdminDashboard from './Admin/adminMain';
-
+import UserProfile from './Body/UserProfile';
 import ProtectedRoute from './Context/ProtectedRoute';
 import CartPage from './Body/CartPage';
 
@@ -18,6 +18,14 @@ function App() {
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <UserProfile />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/admin"
             element={

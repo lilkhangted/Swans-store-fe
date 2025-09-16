@@ -1,0 +1,108 @@
+.admin-dashboard {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #f4f1ed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 15px;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.profile h3 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.role {
+  color: #e0a80d;
+  font-size: 14px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.menu-item {
+  text-decoration: none;
+  color: #444;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.menu-item:hover,
+.menu-item.active {
+  background: #f0b429;
+  color: #fff;
+}
+
+.logout {
+  margin-top: auto;
+  background: none;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  background: #fff;
+  padding: 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.payment-table th {
+  text-align: left;
+  background: #f7f7f7;
+  padding: 12px;
+  border-bottom: 2px solid #ddd;
+}
+
+.payment-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.payment-table tr:hover {
+  background: #fafafa;
+}

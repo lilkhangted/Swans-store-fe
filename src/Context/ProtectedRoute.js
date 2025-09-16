@@ -5,8 +5,11 @@ import {useAuth} from "./authContext";
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
 
-  if (!user) {
-    return <Navigate to="/login" replace />;
+  if (user === null) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return <Navigate to="/" />;
+    }
   }
 
   return children;

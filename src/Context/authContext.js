@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext,useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
@@ -10,8 +10,10 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
-      setUser({ token });
+    const userId = localStorage.getItem('userId');
+    const role = localStorage.getItem('role');
+    if (token && userId) {
+      setUser({ token, userId, role });
     }
   }, []);
 
@@ -19,13 +21,17 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await fetch(`${API_URL}/api/login`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }, 
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
       const data = await response.json();
+
       if (response.ok) {
-        setUser({ token: data.token, role: data.role });
+        setUser({ token: data.token, role: data.role, userId: data.userId });
         localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.userId);
+        localStorage.setItem('role', data.role);
+
         if (data.role === 'admin') {
           navigate('/admin');
         } else {
@@ -40,20 +46,21 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (userData) => {
-  try {
-    const response = await fetch(`${API_URL}/api/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(userData),
-    });
-    const data = await response.json();
+    try {
+      const response = await fetch(`${API_URL}/api/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData),
+      });
+      const data = await response.json();
 
-    if (response.ok) {
-      setUser({ token: data.token, role: data.role });
-      localStorage.setItem('token', data.token);
+      if (response.ok) {
+        setUser({ token: data.token, role: data.role, userId: data.userId });
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.userId);
+        localStorage.setItem('role', data.role);
 
-      // Điều hướng dựa theo role
-      if (data.role === 'admin') {
+        if (data.role === 'admin') {
           navigate('/admin');
         } else {
           navigate('/home');
@@ -62,13 +69,15 @@ export const AuthProvider = ({ children }) => {
         throw new Error(data.message);
       }
     } catch (err) {
-    console.error('Register error:', err);
+      console.error('Register error:', err);
     }
   };
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('role');
     navigate('/login');
   };
 
