@@ -1,12 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import { useAuth } from '../Context/authContext';
+import { Link, Routes, Route } from 'react-router-dom';
+import AdminHome from './AdminHome';
+import AdminProd from './AdProduct';
+import AdminOrder from './AdOrder';
+import AdminPayment from './AdPayment';
+import AdminCategory from './AdCategory';
 import "./Admin.css";
 
 
 const AdminDashboard = () => {
   const { logout, user } = useAuth();
   const [ admin, setAdmin ] = useState(null);
-  const API_URL = process.env.REACT_APP_API_URL
+const API_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://swans-store-be.onrender.com";
   useEffect(() => {
     const fetchAdmin = async () => {
       try {
@@ -41,12 +50,11 @@ const AdminDashboard = () => {
         </div>
 
         <nav className="menu">
-          <a href="/homeasd" className="menu-item">Home</a>
-          <a href="/products" className="menu-item">Products</a>
-          <a href="/orders" className="menu-item">Orders</a>
-          <a href="/payment" className="menu-item active">Payment</a>
-          <a href="/report" className="menu-item">Report</a>
-          <a href="/categories" className="menu-item">Categories</a>
+          <Link to="/admin/home" className="menu-item">Home</Link>
+          <Link to="/admin/products" className="menu-item">Products</Link>
+          <Link to="/admin/orders" className="menu-item">Orders</Link>
+          <Link to="/admin/payment" className="menu-item">Payment</Link>
+          <Link to="/admin/categories" className="menu-item">Categories</Link>
         </nav>
 
         <button onClick={logout} className="logout">Logout</button>

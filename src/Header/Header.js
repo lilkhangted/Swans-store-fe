@@ -5,7 +5,10 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../Context/authContext';
 import UserProfile from '../Body/UserProfile';
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://swans-store-be.onrender.com";
 
 function Header() {
   const navigate = useNavigate();

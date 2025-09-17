@@ -67,42 +67,16 @@
 }
 
 /* Main Content */
-.main-content {
-  flex: 1;
-  background: #fff;
-  padding: 40px;
-}
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.search {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.payment-table {
+.admin-content{
+  background-color: #e6e6e6;
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 30px;
+  padding-left: 20px;
 }
 
-.payment-table th {
-  text-align: left;
-  background: #f7f7f7;
-  padding: 12px;
-  border-bottom: 2px solid #ddd;
-}
-
-.payment-table td {
-  padding: 12px;
-  border-bottom: 1px solid #eee;
-}
-
-.payment-table tr:hover {
-  background: #fafafa;
+.admin-container {
+  display: flex;
+  background: #fff;
+  overflow-y: auto;
 }

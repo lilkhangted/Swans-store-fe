@@ -23,7 +23,11 @@ function ProductDetail() {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const API_URL = process.env.REACT_APP_API_URL;
+        const API_URL =
+          window.location.hostname === "localhost"
+            ? "http://localhost:5000"
+            : "https://swans-store-be.onrender.com";
+            
         const res = await fetch(`${API_URL}/api/products/${id}`);
         if (!res.ok) throw new Error("Không thể tải sản phẩm");
         const data = await res.json();

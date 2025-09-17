@@ -4,7 +4,7 @@ import MainBody from './Body/MainBody';
 import ProductDetail from './Body/ProductDetail';
 import Register from './Body/Register';
 import Login from './Body/Login';
-import AdminDashboard from './Admin/adminMain';
+import Admin from './Admin/Admin';
 import UserProfile from './Body/UserProfile';
 import ProtectedRoute from './Context/ProtectedRoute';
 import CartPage from './Body/CartPage';
@@ -27,10 +27,10 @@ function App() {
             }
           />
           <Route
-            path="/admin"
+            path="/admin/*"
             element={
               <ProtectedRoute requiredRole="admin">
-                <AdminDashboard />
+                <Admin />
               </ProtectedRoute>
             }
           />

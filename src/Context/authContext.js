@@ -2,7 +2,10 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://swans-store-be.onrender.com";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

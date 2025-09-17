@@ -11,7 +11,10 @@ const CartPage = () => {
   const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = process.env.REACT_APP_API_URL;
+const API_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://swans-store-be.onrender.com";
 
   useEffect(() => {
     if (!userId) return;

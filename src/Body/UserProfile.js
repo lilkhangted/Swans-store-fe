@@ -1,7 +1,10 @@
 import {useEffect, useState} from 'react';
 import "../App.css";
 import {useAuth} from '../Context/authContext';
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://swans-store-be.onrender.com";
 
 function UserProfile({ userId, token, onClose }) {
     const { logout, user } = useAuth();
