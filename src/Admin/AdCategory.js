@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 const AdCategory = () => {
     return (
         <div>
-            <h1>This is Admin Home page</h1>
+            <h1>Welcome to Category Page</h1>
         </div>
     );
 };

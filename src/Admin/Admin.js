@@ -12,7 +12,7 @@ import AdminCategory from "./AdCategory";
 const Admin = () => {
   const { user } = useAuth();
   if (!user || user.role !== "admin") {
-    return <Navigate to="/" />;
+    return <Navigate to="/admin" />;
   }
 
   return (

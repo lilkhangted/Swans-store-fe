@@ -6,12 +6,17 @@
 
 /* Sidebar */
 .sidebar {
-  width: 240px;
-  background: #f4f1ed;
+  position: fixed;          /* Cố định */
+  top: 0;
+  left: 0;
+  width: 250px;              /* Chiều rộng cố định */
+  height: 100vh;              /* Chiều cao toàn màn hình */
+  background: #2c3e50;       /* Màu nền sidebar */
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 15px;
+  padding: 20px 10px;
 }
 
 .profile {
@@ -43,36 +48,35 @@
 }
 
 .menu-item {
-  text-decoration: none;
-  color: #444;
+  color: white;
   padding: 10px 15px;
-  border-radius: 6px;
+  text-decoration: none;
   transition: background 0.2s;
 }
 
 .menu-item:hover,
 .menu-item.active {
-  background: #f0b429;
-  color: #fff;
+  background: #34495e;
 }
 
 .logout {
-  margin-top: auto;
-  background: none;
+  margin-top: 250px;
+  background: #e74c3c;
+  color: white;
+  padding: 10px 15px;
   border: none;
-  color: #444;
   cursor: pointer;
-  padding: 10px;
-  font-size: 14px;
+  width: 100%;
+  border-radius: 4px;
 }
 
 /* Main Content */
 
 
-.admin-content{
-  background-color: #e6e6e6;
-  width: 100%;
-  padding-left: 20px;
+.admin-content {
+  margin-left: 260px;
+  padding: 20px;
+  width: calc(100% - 250px);
 }
 
 .admin-container {

@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 const AdPayment = () => {
     return (
         <div>
-            <h2>This is Admin Home page</h2>
+            <h2>Welcome to Payment Page</h2>
         </div>
     );
 };
